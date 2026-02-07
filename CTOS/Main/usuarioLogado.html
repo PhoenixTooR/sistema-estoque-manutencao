@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style_relatorio.css">
+    <title>Relatório de Estoque</title>
+</head>
+<body>
+    <div class="container-largo">
+        <h1>Relatório de Estoque</h1>
+        
+        <div class="dados-usuario-fixos">
+            <p>RESPONSÁVEL: <span id="nomeFixo"></span></p>
+            <p>UNIDADE: <span id="unidadeFixa"></span></p>
+        </div>
+
+        <div class="sessao-entrada no-print">
+            <div class="campos-texto">
+                <input type="text" id="inputCodigo" placeholder="CÓDIGO">
+                <input type="text" id="inputProduto" placeholder="PRODUTO">
+                <input type="text" id="inputTamanho" placeholder="TAMANHO">
+                <input type="text" id="inputFornecedor" placeholder="FORNECEDOR">
+            </div>
+            
+            <div class="opcoes-manutencao">
+                <span>Tipo de Manutenção:</span>
+                <label><input type="radio" name="manut" value="Leve" checked> Leve</label>
+                <label><input type="radio" name="manut" value="Média"> Média</label>
+                <label><input type="radio" name="manut" value="Pesada"> Pesada</label>
+            </div>
+
+            <button onclick="adicionarNota()" class="btn-add">Adicionar Item</button>
+        </div>
+
+        <div id="lista-anotacoes"></div>
+
+        <div class="acoes-finais no-print">
+            <button onclick="window.location.href='index.html'">Sair</button>
+            <button onclick="window.print()">Imprimir PDF</button>
+        </div>
+    </div>
+    <script src="logar.js"></script>
+</body>
+</html>

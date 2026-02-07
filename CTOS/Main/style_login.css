@@ -1,0 +1,134 @@
+/* --- 1. Configurações Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Degradê da esquerda (laranja) para a direita (branco) */
+    background: linear-gradient(to right, #ff8c00, #ffffff);
+    min-height: 100vh; /* Garante que o fundo cubra a tela toda */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+    padding: 20px;
+}
+
+/* --- 2. Containers (Login e Relatório) --- */
+.container, .container-largo {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 850px; /* Largura máxima do relatório */
+    text-align: center;
+}
+
+/* Ajuste específico para o login ser mais estreito que o relatório */
+.container {
+    max-width: 400px;
+}
+
+/* --- 3. Tipografia e Títulos --- */
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+header p {
+    background: #fdf2e9;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 5px solid #ff8c00;
+    margin-bottom: 25px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* --- 4. Inputs e Formulários --- */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #ff8c00;
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
+}
+
+/* Grid para os inputs do relatório ficarem lado a lado */
+.sessao-entrada {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+/* --- 5. Botões --- */
+button {
+    background-color: #ff8c00;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #e67e00;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-secundario {
+    background-color: #6c757d;
+    margin-top: 10px;
+}
+
+/* --- 6. Lista Bloco de Notas --- */
+#lista-anotacoes {
+    text-align: left; /* O texto da nota fica à esquerda */
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto; /* Adiciona scroll se a lista for muito longa */
+    padding-right: 5px;
+}
+
+.item-nota {
+    background: #fff;
+    padding: 15px;
+    border-bottom: 1px dashed #ff8c00;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* --- 7. Regras de Impressão --- */
+@media print {
+    body {
+        background: white !important;
+        display: block;
+    }
+    .no-print, button, .sessao-entrada {
+        display: none !important;
+    }
+    .container-largo {
+        box-shadow: none;
+        max-width: 100%;
+        padding: 0;
+    }
+}
